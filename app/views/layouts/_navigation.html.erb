@@ -1,0 +1,47 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "myapp", root_path, class:"navbar-brand", id: "logo" %>
+    </div>
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Buses" %><li>
+         <li><%= link_to "Routes" %></li>
+      </ul>
+      <form class="navbar-form navbar-left"> 
+      <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right"> 
+      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Information<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+           <li><%= link_to "show all routes" %></li>
+    
+            <li><%= link_to "new route" %></li>
+        
+          </ul>
+      </li>
+
+         <li><%= link_to "Adminchat" %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+           <li><%= link_to "view your profile" %></li>
+           <li><%= link_to "edit your profile" %></li>
+           <li><%= link_to "logout" %></li> 
+          </ul>
+        </li>
+        
+       </ul>
+    </div>
+  </div>
+</nav>
