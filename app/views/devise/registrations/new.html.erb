@@ -10,7 +10,7 @@
       
 
 <%= bootstrap_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-
+  <%= f.text_field :name, placeholder: 'name', class: 'form-control' %>
   <%= f.text_field :email, placeholder: 'email', class: 'form-control' %>
   <%= f.password_field :password, placeholder: 'password', class: 'form-control' %>
   <%= f.password_field :password_confirmation, placeholder: 'password confirmation', class: 'form-control' %>
