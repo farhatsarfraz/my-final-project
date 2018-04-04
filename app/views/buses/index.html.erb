@@ -1,0 +1,19 @@
+<h1>Listing all buses</h1>
+<hr />
+<% @buses.each do |buses| %>
+<div class="row">
+    <div class="col-md-2">
+        <section class="center">
+        
+        </section>
+    </div>
+    <div class="col-md-8 well">
+        <h2>Bus_no</h2><h2><%= buses.bus_no %></h2>
+        <p>
+            <h2>No_of_seates</h2><h2><%= buses.no_of_seates %></h2>
+        </p>
+        <span class="quiet">Created at:<small><%= time_ago_in_words(buses.created_at) %></small></span> 
+        
+    </div>
+</div>
+<% end %>
