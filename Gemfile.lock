@@ -24,6 +24,11 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_model_serializers (0.10.7)
+      actionpack (>= 4.1, < 6)
+      activemodel (>= 4.1, < 6)
+      case_transform (>= 0.2)
+      jsonapi-renderer (>= 0.1.1.beta1, < 0.3)
     activejob (5.1.6)
       activesupport (= 5.1.6)
       globalid (>= 0.3.6)
@@ -33,6 +38,7 @@ GEM
       activemodel (= 5.1.6)
       activesupport (= 5.1.6)
       arel (~> 8.0)
+    activerecord-reputation-system (3.0.1)
     activesupport (5.1.6)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
@@ -45,6 +51,8 @@ GEM
       execjs
     bcrypt (3.1.11)
     bindex (0.5.0)
+    bootstrap-daterangepicker-rails (0.1.7)
+      railties (>= 4.0, < 5.2)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -58,6 +66,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (>= 2.0, < 4.0)
+    case_transform (0.2)
+      activesupport
+    chart-js-rails (0.1.4)
+      railties (> 3.1)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     coffee-rails (4.2.2)
@@ -77,11 +89,38 @@ GEM
       warden (~> 1.2.3)
     erubi (1.7.1)
     execjs (2.7.0)
+    fastclick-rails (1.0.1)
     ffi (1.9.23)
+    flot-rails (0.0.7)
+      jquery-rails
+    font-awesome-sass (4.7.0)
+      sass (>= 3.2)
+    gentelella-rails (0.1.11)
+      bootstrap-daterangepicker-rails (>= 0.1.7)
+      bootstrap-sass (~> 3.3.6)
+      chart-js-rails
+      coffee-rails
+      fastclick-rails
+      flot-rails
+      font-awesome-sass (~> 4.7.0)
+      icheck-rails
+      jquery-rails
+      momentjs-rails
+      nprogress-rails
+      parsley-rails
+      railties (>= 4.0)
+      sass-rails (>= 5.0)
+      select2-rails
+      switchery-rails
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gmaps4rails (2.1.2)
     i18n (1.0.0)
       concurrent-ruby (~> 1.0)
+    icheck-rails (1.0.2.2)
+      jquery-rails
+      rails (>= 3.1.0)
+      sass-rails
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -89,6 +128,7 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
+    jsonapi-renderer (0.2.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -102,11 +142,16 @@ GEM
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.3)
+    momentjs-rails (2.20.1)
+      railties (>= 3.1)
     multi_json (1.13.1)
     nio4r (2.3.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
+    nprogress-rails (0.2.0.2)
     orm_adapter (0.5.0)
+    parsley-rails (2.7.0.0)
+      railties (>= 3.0.0)
     pg (1.0.0)
     public_suffix (3.0.2)
     puma (3.11.3)
@@ -156,6 +201,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    select2-rails (4.0.3)
+      thor (~> 0.14)
     selenium-webdriver (3.11.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
@@ -171,6 +218,8 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    switchery-rails (0.8.1.1)
+      railties (>= 3.2, < 6.0)
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
@@ -198,12 +247,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers
+  activerecord-reputation-system
   bootstrap-sass (~> 3.3.6)
   bootstrap_form
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   devise
+  gentelella-rails
+  gmaps4rails
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)

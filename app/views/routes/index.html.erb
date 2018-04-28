@@ -1,1 +1,46 @@
 <h1>List of all routes</h1>
+<% @routes.each do |routes| %>
+<div class="row">
+    <div class="col-md-2">
+        <section class="center">
+        
+        </section>
+    </div>
+    <div class="col-md-8 well">
+        <p>
+            <h2>Source: <%= routes.source %></h2>
+            <h2>Destination: <%= routes.destination %></h2>
+            <h2>Distance: <%= routes.distance %></h2>
+        </p>
+        <div class="route-actions">
+            <%= link_to "edit the route", edit_route_path(@routes), class: "btn btn-xs btn-primary" %>
+            <%= link_to "delete the route", route_path(@routes), method: :delete, data: {confirm: "are yor sure?"}, class: "btn btn-xs btn-danger" %>      
+            
+        </div>
+    </div>
+</div>
+<% end %>
+
+<center>
+<div style='width: 800px;'>  
+  <div id="map" style='width: 800px; height: 400px;'></div>  
+</div>  
+<script type="text/javascript">  
+  handler = Gmaps.build('Google');  
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){  
+  markers = handler.addMarkers([  
+    {  
+      "lat": 37.3333945,  
+      "lng": -121.8806499,  
+      "picture": {  
+        "width":  32,  
+        "height": 32  
+      },  
+      "infowindow": "SJSU"  
+    }  
+  ]);  
+  handler.bounds.extendWith(markers);  
+  handler.fitMapToBounds();  
+  });  
+</script>
+</center>

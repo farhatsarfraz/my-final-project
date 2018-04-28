@@ -1,0 +1,14 @@
+<h1 align="center">Buses Information</h1><%= @buses.bus_id %>
+<div class="well col-md-8 col-md-offset-2">
+    <h4 class="center"><strong>Bus_no: </strong> <%= @buses.bus_no %></h4>
+    <h4 class="center"><strong>No_of_seates: </strong><%= @buses.no_of_seates %></h4>
+    <div class="buses-actions">
+        <%= link_to "edit the bus", edit_bus_path(@buses), class: "btn btn-xlarge" %>
+        <%= link_to "delete the bus", buses_path(@buses), method: :delete, data: {confirm: "are yor sure?"}, class: "btn btn-xs btn-danger" %>      
+        <%= link_to "return to buses list", buses_path, class: "btn btn-xs btn-primary" %> 
+    </div>
+
+
+
+
+</div>

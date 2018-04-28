@@ -12,6 +12,10 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
 //= require jquery
 //= require bootstrap-sprockets
+//= require jquery_ujs
+//= require gmaps/google
+//= require_tree .
+//= require gentelella
+//= require gentelella-custom

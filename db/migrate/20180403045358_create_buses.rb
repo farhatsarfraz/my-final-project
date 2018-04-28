@@ -1,8 +1,7 @@
 class CreateBuses < ActiveRecord::Migration[5.1]
   def change
     create_table :buses do |t|
-      t.integer :bus_id
-      t.integer :bus_no
+      t.string :regestration_no, null: false, default: ""
       t.integer :no_of_seates
       t.timestamps
     end

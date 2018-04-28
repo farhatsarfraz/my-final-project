@@ -1,0 +1,37 @@
+<h1>Edit the route</h1>
+<div class="row">
+  <div class="col-md-12">
+    <%= form_for(@routes, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :source %>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_field :source, class: "form-control", placeholder: "Enter source", autofocus: true %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :destination%>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_area :destination, class: "form-control", placeholder: "Enter destination" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :time %>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_area :time, class: "form-control", placeholder: "Enter time" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+          <%= f.submit class: "btn btn-primary btn-lg btn-xlarge" %>
+        </div>
+      </div>
+     
+    <% end %>
+  </div>
+</div>

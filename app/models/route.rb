@@ -1,8 +1,5 @@
 class Route < ApplicationRecord
-    validates :route_id, presence: true, length: { maximum: 13 } 
-    validates :source, presence: true
-    validates :destination, presence: true
-    validates :distance, presence: true
-    has_many :buses
-    has_many :stops
+    validates_presence_of :source, :destination, :destination
+    has_and_belongs_to_many :stops
+    has_and_belongs_to_many :buses
 end
