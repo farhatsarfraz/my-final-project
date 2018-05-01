@@ -10,12 +10,8 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
 //= require turbolinks
-//= require jquery
-//= require bootstrap-sprockets
-//= require jquery_ujs
+//= require gentelella
 //= require gmaps/google
 //= require_tree .
-//= require gentelella
 //= require gentelella-custom

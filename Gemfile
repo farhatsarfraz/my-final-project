@@ -16,11 +16,11 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'devise'
 gem 'bootstrap_form'
-gem 'active_model_serializers' 
+gem 'active_model_serializers'
 gem 'gentelella-rails'
 gem 'activerecord-reputation-system'
 gem 'gmaps4rails'
-gem 'simple_token_authentication', '~> 1.0' 
+gem 'simple_token_authentication', '~> 1.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
