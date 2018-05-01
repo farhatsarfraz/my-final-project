@@ -3,42 +3,41 @@ class BusesController < ApplicationController
        @buses = Bus.all 
     end
     def show 
-        @buses = Bus.find(params[:id])
+        @bus = Bus.find(params[:id])
     end
     def new 
-        @buses = Bus.new
+        @bus = Bus.new
     end
     def create
-        @buses = Bus.new(buses_params)
-        if @buses.save
+        @bus = Bus.new(buses_params)
+        if @bus.save
             flash[:notice] = "Bus was created successfully"
-        redirect_to buses_path(@buses)
+            redirect_to buses_path(@bus)
         else 
             render 'new'
         end
     end
     def edit
-      @buses = Bus.new
+      @bus = Bus.new
     end 
     def update
-        if @buses.update(buses_params)
+        if @bus.update(buses_params)
             flash[:notice] = "bus was updated successfully"
-            redirect_to buses_path(@buses)
+            redirect_to buses_path(@bus)
         else 
             render 'edit'
         end
     end
-        def destroy
-             @buses.destroy
-             flash[:notice] = "bus was deleted successfully"
-             redirect_to buses_path
-
-        end
+    def destroy
+        @bus.destroy
+        flash[:danger] = "bus was successfully deleted"
+        redirect_to routes_path
+    end
      private
 
 
     def buses_params
-        params.require(:bus).permit(:bus_no, :no_of_seates)
+        params.require(:bus).permit(:regestration_no, :no_of_seates)
     end
     
 end

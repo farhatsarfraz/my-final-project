@@ -1,4 +1,4 @@
-module API
+module Api
   class SessionsController <  Api::ApplicationController
     skip_before_action :authenticate_user!, only: [:create]
   
@@ -6,7 +6,8 @@ module API
       user = User.find_for_database_authentication(:email => params[:user_login][:email])
       user ||= User.new
 
-      if resource.valid_password?(params[:user_login][:password]) 
+      puts params.inspect
+      if user.valid_password?(params[:user_login][:password]) 
         render json: { authentication_token: user.authentication_token }
       else
         invalid_login_attempt

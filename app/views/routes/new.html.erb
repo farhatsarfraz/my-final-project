@@ -1,7 +1,7 @@
 <h1>Enter new route</h1>
 <div class="row">
   <div class="col-md-12">
-    <%= form_for(@routes, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+    <%= form_for(@route, :html => {class: "form-horizontal", role: "form"}) do |f| %>
       <div class="form-group">
         <div class="control-label col-md-2">
           <%= f.label :source %>
@@ -16,6 +16,14 @@
         </div>
         <div class="col-md-8">
           <%= f.text_area :destination, class: "form-control", placeholder: "Enter destination" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :distance%>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_area :distance, class: "form-control", placeholder: "Enter distance" %>
         </div>
       </div>
       <div class="form-group">

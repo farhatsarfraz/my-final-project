@@ -1,13 +1,13 @@
-<h1>Enter new route</h1>
+<h1>Update existing route</h1>
 <div class="row">
   <div class="col-md-12">
-    <%= form_for(@buses, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+    <%= form_for(@bus, :html => {class: "form-horizontal", role: "form"}) do |f| %>
       <div class="form-group">
         <div class="control-label col-md-2">
-          <%= f.label :bus_no %>
+          <%= f.label :regestration_no %>
         </div>
         <div class="col-md-8">
-          <%= f.text_field :bus_no, class: "form-control", placeholder: "Enter source", autofocus: true %>
+          <%= f.text_field :regestration_no, class: "form-control", placeholder: "Enter regestration_no", autofocus: true %>
         </div>
       </div>
       <div class="form-group">
@@ -15,7 +15,7 @@
           <%= f.label :no_of_seates %>
         </div>
         <div class="col-md-8">
-          <%= f.text_area :no_of_seates, class: "form-control", placeholder: "Enter destination" %>
+          <%= f.text_area :no_of_seates, class: "form-control", placeholder: "Enter no_of_seates" %>
         </div>
       </div>
       

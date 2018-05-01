@@ -4,20 +4,20 @@
 <div class="row">
     <div class="col-md-2">
         <section class="center">
-        
         </section>
     </div>
     <div class="col-md-8 well">
-        <h2>Bus_no: <%= buses.bus_no %></h2>
+        <h2>Regestration_no: <%= buses.regestration_no %></h2>
         <p>
             <h2>No_of_seates: <%= buses.no_of_seates %></h2>
         </p>
         <span class="quiet">Created at:<small><%= time_ago_in_words(buses.created_at) %></small> 
         
         <div class="buses-actions">
+        <%= link_to "configure routes", routes_path, class: "btn btn-xs btn-primary" %>
         <%= link_to "edit the bus", edit_bus_path(@buses), class: "btn btn-xs btn-primary" %>
-        <%= link_to "delete the bus", buses_path(@buses), method: :delete, data: {confirm: "are yor sure?"}, class: "btn btn-xs btn-danger" %>      
         <%= link_to "return to buses list", buses_path, class: "btn btn-xs btn-primary" %> 
+        <%= link_to "delete the bus", buses_path(@buses), method: :delete, data: {confirm: "are yor sure?"}, class: "btn btn-xs btn-danger" %>      
         </span>
         </div>
     </div>

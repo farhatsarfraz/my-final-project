@@ -36,13 +36,9 @@ class RoutesController < ApplicationController
     end
 
     def destroy
-        @route = Route.find(params[:id])
-        if @route.destroy
-            flash[:notice] = "route was deleted successfully"
-            redirect_to routes_path
-        else
-            flash[:notice] = "route was not deleted "
-        end
+        @route.destroy
+        flash[:danger] = "successfully delete the route"
+        redirect_to routes_path
     end
 
     private
