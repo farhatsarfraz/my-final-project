@@ -1,6 +1,6 @@
 class Api::ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
-  acts_as_token_authentication_handler_for User
+  # acts_as_token_authentication_handler_for User
   before_action :authenticate_user!
 
   def current_user
@@ -17,7 +17,7 @@ class Api::ApplicationController < ActionController::Base
 
   def current_token
     authenticate_with_http_token do |token, options|
-      User.find_by(authentication_token: token)
+      token || 'Nothing'
     end
   end
 

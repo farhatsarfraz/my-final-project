@@ -5,10 +5,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  
+
   def invalidate_auth_token
     self.update_columns(aut: nil)
   end
 
-  
+
 end
