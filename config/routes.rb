@@ -5,13 +5,12 @@ Rails.application.routes.draw do
       delete "/sign-out"      => "sessions#destroy"
     end
     namespace :v1 do
-
-         resources :users, :only => [:show, :create]
+      resources :users, :only => [:show, :create]
     end
-  end  
- 
-  devise_for :users 
-  
+  end
+
+  devise_for :users
+
   devise_scope :users do
     get 'login', to: 'devise/sessions#new'
   end
@@ -24,5 +23,5 @@ Rails.application.routes.draw do
 
   resources :stops
   resources :routes
- 
+
 end
