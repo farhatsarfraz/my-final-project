@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180429063417) do
+ActiveRecord::Schema.define(version: 20180509033137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,19 @@ ActiveRecord::Schema.define(version: 20180429063417) do
     t.datetime "updated_at", null: false
     t.index ["bus_id"], name: "index_buses_routes_on_bus_id"
     t.index ["route_id"], name: "index_buses_routes_on_route_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "description"
+    t.integer "user_id"
+    t.integer "bus_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
   end
 
   create_table "routes", force: :cascade do |t|
@@ -55,6 +68,7 @@ ActiveRecord::Schema.define(version: 20180429063417) do
     t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "order"
   end
 
   create_table "timings", force: :cascade do |t|

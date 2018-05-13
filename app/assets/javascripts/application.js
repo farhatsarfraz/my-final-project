@@ -15,3 +15,15 @@
 //= require gmaps/google
 //= require_tree .
 //= require gentelella-custom
+
+function scrollToBottom() {
+    if ($('#messages').length > 0) {
+        $('#messages').scrollTop($('#messages')[0].scrollHeight);
+    }
+}
+
+$(document).ready(function () {
+    scrollToBottom();
+});
+
+

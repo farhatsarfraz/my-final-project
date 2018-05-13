@@ -13,7 +13,7 @@ module Api
       end
     end
 
-    def destroy
+    def destroys
       current_user.invalidate_auth_token
       head :ok
     end

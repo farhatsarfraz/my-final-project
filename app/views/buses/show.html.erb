@@ -1,14 +1,12 @@
-<h1 align="center">Buses Information</h1><%= @buses.bus_id %>
+<h1 align="center">Buses Information</h1>
 <div class="well col-md-8 col-md-offset-2">
-    <h4 class="center"><strong>Regestration_no: </strong> <%= @buses.regestration_no %></h4>
-    <h4 class="center"><strong>No_of_seates: </strong><%= @buses.no_of_seates %></h4>
+    <h4 class="center"><strong>Regestration_no: </strong> <%= @bus.regestration_no %></h4>
+    <h4 class="center"><strong>No_of_seates: </strong><%= @bus.no_of_seates %></h4>
     <div class="buses-actions">
-        <%= link_to "edit the bus", edit_bus_path(@buses), class: "btn btn-xlarge" %>
-        <%= link_to "delete the bus", buses_path(@buses), method: :delete, data: {confirm: "are yor sure?"}, class: "btn btn-xs btn-danger" %>      
+        <%= link_to "edit the bus", edit_bus_path(@bus), class: "btn btn-xlarge" %>
+        <%= link_to "delete the bus", buses_path(@bus), method: :delete, data: {confirm: "are yor sure?"}, class: "btn btn-xs btn-danger" %>      
         <%= link_to "return to buses list", buses_path, class: "btn btn-xs btn-primary" %> 
     </div>
+</div> 
 
 
-
-
-</div>

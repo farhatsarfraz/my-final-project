@@ -18,10 +18,16 @@ Rails.application.routes.draw do
   resources :pages
 
   root to: 'pages#index'
-  resources :buses
+  resources :buses do
+    resources :comments, olny: [:create]
+  end
   resources :users
 
   resources :stops
+  resources :comments, only: [:create]
   resources :routes
+  resources :messages
+  mount ActionCable.server => '/cable'
+  get '/chat', to: 'chatrooms#show'
 
 end

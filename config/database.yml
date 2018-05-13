@@ -9,6 +9,8 @@ development:
   <<: *default
   host: localhost
   database: tracker_development
+  username: postgres
+  password: postgres
 
 test:
   <<: *default

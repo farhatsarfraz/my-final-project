@@ -6,9 +6,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  def invalidate_auth_token
-    self.update_columns(aut: nil)
-  end
+
+  has_many :comments, dependent: :destroy
+  has_many :messages, dependent: :destroy
+    def invalidate_auth_token
+        self.update_columns(aut: nil)
+    end
+
 
 
 end

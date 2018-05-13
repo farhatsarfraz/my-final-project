@@ -1,7 +1,7 @@
 <h1>Listing all buses</h1>
 <hr />
 <% @buses.each do |buses| %>
-<div class="row">
+  <div class="row">
     <div class="col-md-2">
         <section class="center">
         </section>
@@ -11,16 +11,54 @@
         <p>
             <h2>No_of_seates: <%= buses.no_of_seates %></h2>
         </p>
-        <span class="quiet">Created at:<small><%= time_ago_in_words(buses.created_at) %></small> 
+          <span class="quiet">Created at:<small><%= time_ago_in_words(buses.created_at) %></small> 
         
         <div class="buses-actions">
-        <%= link_to "configure routes", routes_path, class: "btn btn-xs btn-primary" %>
-        <%= link_to "edit the bus", edit_bus_path(@buses), class: "btn btn-xs btn-primary" %>
-        <%= link_to "return to buses list", buses_path, class: "btn btn-xs btn-primary" %> 
-        <%= link_to "delete the bus", buses_path(@buses), method: :delete, data: {confirm: "are yor sure?"}, class: "btn btn-xs btn-danger" %>      
-        </span>
+          <%= link_to "configure routes", routes_path, class: "btn btn-xs btn-primary" %>
+          <%= link_to "edit the bus", edit_bus_path(@buses), class: "btn btn-xs btn-primary" %>
+          <%= link_to "return to buses list", buses_path, class: "btn btn-xs btn-primary" %> 
+          <%= link_to "delete the bus", buses_path(@buses), method: :delete, data: {confirm: "are yor sure?"}, class: "btn btn-xs btn-danger" %>      
+          </span>
         </div>
     </div>
-</div>
+  </div>
+
 
 <% end %>
+<h1>Create new Bus</h1>
+<div class="row">
+  <div class="col-md-12">
+    <%= form_for([@bus, @comment], :html => {class: "form-horizontal", role: "form"}) do |f| %>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :description %>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_field :description, class: "form-control", placeholder: "Enter description", autofocus: true %>
+        </div>
+      </div>  
+      <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+          <%= f.submit "submit comment", class: "btn btn-primary btn-lg btn-xlarge" %>
+        </div>
+      </div>
+     
+    <% end %>
+  </div>
+</div>
+
+
+  <div class="row">
+   <div class="col-md-8 col-md-offset-2">
+     <h3> Prior comments: </h3>
+      <div id="messages">
+        <%= render partial: 'comments/comments', object: @comments %>
+      </div>
+   </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h3> no comments yet! </h3>
+    </div>
+  </div>
+   
