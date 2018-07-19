@@ -15,3 +15,4 @@
 //= require gmaps/google
 //= require_tree .
 //= require gentelella-custom
+//= require select2
