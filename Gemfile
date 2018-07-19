@@ -15,7 +15,6 @@ gem 'bootstrap_form'
 gem 'active_model_serializers'
 gem 'gentelella-rails'
 gem 'activerecord-reputation-system'
-gem 'gmaps4rails'
 gem 'simple_token_authentication', '~> 1.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -46,7 +45,6 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'dotenv-rails'
   gem 'letter_opener_web', '~> 1.0'
-  gem 'dotenv-rails'
 end
 
 group :development do

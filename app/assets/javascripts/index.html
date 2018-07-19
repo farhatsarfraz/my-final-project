@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<title>Google Map</title>
+  	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnIKD3Bm7FZnhmfIyKh79WxuxSu4YXfUE&libraries=places">
+    </script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+  	
+</head>
+<body>
+	<div class="form-group">
+    <div class="form-row">
+        <div class="col-md-12">
+            <label for="map">Type location and press marker button to open the map. To change marker position, click on desired point on the map.</label>
+            <input class="UTSplacepicker form-control" id="map" data-map-container-id="collapseOne" />
+        </div>
+    </div>
+    <div id="collapseOne" class="collapse">
+        <div class="placepicker-map thumbnail" style="height: 500px"></div>
+    </div>
+    Latitude:<br>
+    <input type="text" name="latitude" id="latitude" value=""><br>
+    Longitude:<br>
+    <input type="text" name="longitude" id="longitude" value="">
+  </div>
+  <script src="map.js" type="application/javascript"></script>
+</body>
+</html>

@@ -2,30 +2,32 @@ class StopsController < ApplicationController
     def index
         @stops = Stop.all
     end
-    def show 
-        @stops = Stop.find(params[:id])
+    def show
+        @stop = Stop.find(params[:id])
     end
     def new
-        @stops = Stop.new
+        @stop = Stop.new
     end
     def create
-        @stops = Stop.new(stops_params)
-        if @stops.save
+        @stop = Stop.new(stops_params)
+        if @stop.save
             flash[:notice] = "Stop was created successfully"
-        redirect_to stops_path(@stops)
-        else 
+            redirect_to stops_path(@stops)
+        else
+            flash[:error] = @stop.errors.full_messages.to_sentence
             render 'new'
         end
     end
-    
+
     def edit
-       
-    end 
+
+    end
     def update
-        if @stops.update(stops_params)
+        if @stop.update(stops_params)
             flash[:notice] = "stop was updated successfully"
             redirect_to stops_path(@stops)
-        else 
+        else
+            flash[:error] = @stop.errors.full_messages.to_sentence
             render 'edit'
         end
     end
@@ -33,13 +35,12 @@ class StopsController < ApplicationController
              @stops.destroy
              flash[:notice] = "stop was deleted successfully"
              redirect_to stops_path
-
         end
      private
 
 
     def stops_params
-        params.require(:stop).permit(:name)
+        params.require(:stop).permit(:name, :latitude, :longitude)
     end
-    
+
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180429063417) do
+ActiveRecord::Schema.define(version: 20180719040707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,10 +51,12 @@ ActiveRecord::Schema.define(version: 20180429063417) do
 
   create_table "stops", force: :cascade do |t|
     t.string "name"
-    t.float "latitude"
-    t.float "longitude"
+    t.string "latitude"
+    t.string "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["latitude", "longitude"], name: "index_stops_on_latitude_and_longitude", unique: true
+    t.index ["name"], name: "index_stops_on_name", unique: true
   end
 
   create_table "timings", force: :cascade do |t|

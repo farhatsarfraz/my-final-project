@@ -1,13 +1,43 @@
-<h1>Enter new route</h1>
+
+<div class="form-group">
+  <div class="form-row">
+    <div class="col-md-12">
+      <label for="map">Type location and press marker button to open the map. To change marker position, click on desired point on the map.</label>
+      <input class="UTSplacepicker form-control" id="map" data-map-container-id="collapseOne" />
+    </div>
+  </div>
+  <div id="collapseOne" class="collapse in">
+      <div class="placepicker-map thumbnail" style="height: 500px"></div>
+  </div>
+</div>
 <div class="row">
   <div class="col-md-12">
-    <%= form_for(@stops, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+    <% flash.each do |key, value| %>
+      <div class="flash <%= key %>"><%= value %></div>
+    <% end %>
+    <%= form_for(@stop, :html => {class: "form-horizontal", role: "form"}) do |f| %>
       <div class="form-group">
         <div class="control-label col-md-2">
           <%= f.label :name %>
         </div>
         <div class="col-md-8">
-          <%= f.text_field :name, class: "form-control", placeholder: "Enter source", autofocus: true %>
+          <%= f.text_field :name, class: "form-control", placeholder: "Name the stop", autofocus: true %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :latitude %>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_field :latitude, class: "form-control", id: "latitude", readonly: true %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :longitude %>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_field :longitude, class: "form-control", id: "longitude", readonly: true %>
         </div>
       </div>
       <div class="form-group">
@@ -15,7 +45,7 @@
           <%= f.submit class: "btn btn-primary btn-lg btn-xlarge" %>
         </div>
       </div>
-     
+
     <% end %>
   </div>
 </div>
