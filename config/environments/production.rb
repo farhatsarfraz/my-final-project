@@ -62,16 +62,18 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "app_#{Rails.env}"
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_options = {from: ENV["MAIL_USERNAME"]}
+  config.action_mailer.default_url_options = { host: ENV['HEROKU_URL'] }
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     port: 587,
     user_name: ENV["MAIL_USERNAME"],
+    domain: ENV['HEROKU_URL'],
     password: ENV["MAIL_PASSWORD"],
     authentication: :plain,
-    enable_starttls_auto: true,
-    openssl_verify_mode: 'none'
+    enable_starttls_auto: true
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
