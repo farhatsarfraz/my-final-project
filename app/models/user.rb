@@ -3,9 +3,11 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates_uniqueness_of :authentication_token
+
+  ROLES = ['student', 'driver']
 
   def invalidate_auth_token
     self.authentication_token = nil
