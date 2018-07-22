@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users, :controllers => { :invitations => 'users/invitations' }
+  devise_for :users, controllers: { :invitations => 'users/invitations' }, skip: [:registrations]
 
   devise_scope :users do
     get 'login', to: 'devise/sessions#new'
