@@ -5,11 +5,19 @@ class Users::InvitationsController < Devise::InvitationsController
 
     puts "existing user"
     if existing_user.present?
-      puts "-------- already------------\n"*15
       redirect_to root_path, notice: 'This user has been invited already or a registered user.'
     else
-      User.invite!(email: params[:user][:email], role: params[:user][:role])
-      redirect_to root_path, notice: 'User has been invited successfully.'
+      ActiveRecord::Base.transaction do
+        begin
+          if User.invite!(email: params[:user][:email], role: params[:user][:role])
+            redirect_to root_path, notice: 'User has been invited successfully.'
+          else
+            redirect_to root_path, notice: 'Problem sending the inviataion to user: #{params[:user][:email]}.'
+          end
+        rescue
+          redirect_to root_path, notice: 'Problem sending the inviataion to user: #{params[:user][:email]}.'
+        end
+      end
     end
   end
 end
