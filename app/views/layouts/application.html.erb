@@ -20,9 +20,12 @@
       <%= render 'layouts/navbar' %>
 
       <div class="right_col" role="main" style="min-height: 1704px;">
-        <% if notice %><div class="alert alert-info"><%= notice %><% end %>
-        <% if alert %><div class="alert alert-warning"><%= alert %><% end %>
-
+        <% if notice %>
+          <div class="alert alert-info"><%= notice %></div>
+        <% end %>
+        <% if alert %>
+          <div class="alert alert-warning"><%= alert %></div>
+        <% end %>
         <%= yield %>
       </div>
 
