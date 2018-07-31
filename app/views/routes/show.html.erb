@@ -1,8 +1,30 @@
 <h1 align="center">Routes Information</h1>
 <div class="well col-md-8 col-md-offset-2">
-    <h4 class="center"><strong>Source: </strong> <%= @route.source %></h4>
-    <h4 class="center"><strong>Destination: </strong><%= @route.destination %></h4>
+    <h4 class="center"><strong>Name: </strong><%= @route.name %></h4>
+    <h4 class="center"><strong>Start Stop: </strong> <%= @route.start_stop.name %></h4>
+    <h4 class="center"><strong>End Stop: </strong><%= @route.end_stop.name %></h4>
     <h4 class="center"><strong>time: </strong><%= @route.time %></h4>
+    <h4 class="center"><strong>Distance: </strong><%= @route.distance %></h4>
+    <h4 class="center"><strong>No of Stops: </strong><%= @route.stops.count + 2 %></h4>
+    <h4 class="center"><strong>Stops: </strong><%= @route.stops.map { |s| [s.name]}.uniq.join(", ") %></h4>
+    <%= form_for(@route, url: add_stops_route_url(@route), :html => {class: "form-horizontal", role: "form", method: :post}) do |f| %>
+      <div class="form-group">
+
+        <div class="control-label col-md-2">
+          <%= f.label :stops, "New Stops" %>
+        </div>
+        <div class="col-md-8">
+          <%= f.select :stop_ids, @stops_list, {prompt: "Add new  stops"}, { class: "form-control multiple-slect2", multiple: true }%>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+          <%= f.submit "Add Stops", class: "btn btn-primary btn-md" %>
+        </div>
+      </div>
+
+    <% end %>
+
 </div>
 
 

@@ -4,18 +4,40 @@
     <%= form_for(@route, :html => {class: "form-horizontal", role: "form"}) do |f| %>
       <div class="form-group">
         <div class="control-label col-md-2">
-          <%= f.label :source %>
+          <%= f.label :name %>
         </div>
         <div class="col-md-8">
-          <%= f.text_field :source, class: "form-control", placeholder: "Enter source", autofocus: true %>
+          <%= f.text_field :name, class: "form-control", placeholder: "Enter Name for Route" %>
         </div>
       </div>
       <div class="form-group">
         <div class="control-label col-md-2">
-          <%= f.label :destination%>
+          <%= f.label :start_stop_id, "Start Stop" %>
         </div>
         <div class="col-md-8">
-          <%= f.text_area :destination, class: "form-control", placeholder: "Enter destination" %>
+          <%= f.text_field :start_stop_id, list: "start_stops_autocomplete", class: "form-control", placeholder: "Enter start stop", autofocus: true %>
+          <datalist id="start_stops_autocomplete">
+            <% Stop.all.each do |stop| %>
+              <option value="<%= stop.id %>">
+                <%= stop.name %>
+              </option>
+            <% end %>
+          </datalist>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-2">
+          <%= f.label :end_stop_id, "End Stop"%>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_field :end_stop_id, list: "end_stops_autocomplete", class: "form-control", placeholder: "Enter end stop", autofocus: true %>
+          <datalist id="end_stops_autocomplete">
+            <% Stop.all.each do |stop| %>
+              <option value="<%= stop.id %>">
+                <%= stop.name %>
+              </option>
+            <% end %>
+          </datalist>
         </div>
       </div>
       <div class="form-group">
@@ -23,7 +45,7 @@
           <%= f.label :distance%>
         </div>
         <div class="col-md-8">
-          <%= f.text_area :distance, class: "form-control", placeholder: "Enter distance" %>
+          <%= f.text_field :distance, class: "form-control", placeholder: "Enter distance" %>
         </div>
       </div>
       <div class="form-group">
@@ -31,7 +53,7 @@
           <%= f.label :time %>
         </div>
         <div class="col-md-8">
-          <%= f.text_area :time, class: "form-control", placeholder: "Enter time" %>
+          <%= f.text_field :time, class: "form-control", placeholder: "Enter time" %>
         </div>
       </div>
       <div class="form-group">
@@ -39,7 +61,7 @@
           <%= f.submit class: "btn btn-primary btn-lg btn-xlarge" %>
         </div>
       </div>
-     
+
     <% end %>
   </div>
 </div>
