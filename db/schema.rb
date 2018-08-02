@@ -31,6 +31,27 @@ ActiveRecord::Schema.define(version: 20180722101503) do
     t.index ["route_id"], name: "index_buses_routes_on_route_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "description"
+    t.integer "user_id"
+    t.integer "bus_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+  end
+
+  create_table "routers", force: :cascade do |t|
+    t.string "name"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "routes", force: :cascade do |t|
     t.string "source"
     t.string "destination"
@@ -38,7 +59,6 @@ ActiveRecord::Schema.define(version: 20180722101503) do
     t.string "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name", null: false
   end
 
   create_table "routes_stops", force: :cascade do |t|
@@ -56,6 +76,7 @@ ActiveRecord::Schema.define(version: 20180722101503) do
     t.string "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "order"
     t.index ["latitude", "longitude"], name: "index_stops_on_latitude_and_longitude", unique: true
     t.index ["name"], name: "index_stops_on_name", unique: true
   end
