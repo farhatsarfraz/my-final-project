@@ -1,4 +1,5 @@
 class RoutesController < ApplicationController
+    before_action :is_admin?
 
     def index
         @routes = Route.all
@@ -74,6 +75,10 @@ class RoutesController < ApplicationController
         existing_stops = route.stops.map { |stop| [stop.name, stop.id]}
         @stops_list = @stops_list.reject!(&:blank?) - existing_stops
         @stops_list
+    end
+
+    def is_admin?
+        redirect_to root_path unless current_user.admin
     end
 
 end

@@ -1,4 +1,6 @@
 class StopsController < ApplicationController
+    before_action :is_admin?
+
     def index
         @stops = Stop.all
     end
@@ -41,6 +43,10 @@ class StopsController < ApplicationController
 
     def stops_params
         params.require(:stop).permit(:name, :latitude, :longitude)
+    end
+
+    def is_admin?
+        redirect_to root_path unless current_user.admin
     end
 
 end

@@ -1,11 +1,13 @@
 class BusesController < ApplicationController
-    def index 
-       @buses = Bus.all 
+    before_action :is_admin?
+
+    def index
+       @buses = Bus.all
     end
-    def show 
+    def show
         @bus = Bus.find(params[:id])
     end
-    def new 
+    def new
         @bus = Bus.new
     end
     def create
@@ -13,18 +15,18 @@ class BusesController < ApplicationController
         if @bus.save
             flash[:notice] = "Bus was created successfully"
             redirect_to buses_path(@bus)
-        else 
+        else
             render 'new'
         end
     end
     def edit
       @bus = Bus.new
-    end 
+    end
     def update
         if @bus.update(buses_params)
             flash[:notice] = "bus was updated successfully"
             redirect_to buses_path(@bus)
-        else 
+        else
             render 'edit'
         end
     end
@@ -39,6 +41,9 @@ class BusesController < ApplicationController
     def buses_params
         params.require(:bus).permit(:regestration_no, :no_of_seates)
     end
-    
+
+    def is_admin?
+        current_user.admin
+    end
 end
 

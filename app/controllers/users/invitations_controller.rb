@@ -1,4 +1,5 @@
 class Users::InvitationsController < Devise::InvitationsController
+  before_action :is_admin?
 
   def create
     existing_user = User.find_by(email: params[:user][:email])
@@ -21,5 +22,11 @@ class Users::InvitationsController < Devise::InvitationsController
         end
       end
     end
+  end
+
+  private
+
+  def is_admin?
+    redirect_to root_path unless current_user.admin
   end
 end
