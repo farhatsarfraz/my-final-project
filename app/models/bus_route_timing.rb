@@ -1,0 +1,3 @@
+class BusRouteTiming < ApplicationRecord
+
+end

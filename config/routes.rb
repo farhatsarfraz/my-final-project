@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   resources :users
 
   resources :stops
-  resources :routes
+  resources :routes do
+    post :add_stops, on: :member
+  end
 
 end

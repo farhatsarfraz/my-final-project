@@ -10,16 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180722101503) do
+ActiveRecord::Schema.define(version: 20180729135228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bus_route_timings", force: :cascade do |t|
+    t.bigint "buses_route_id"
+    t.bigint "routes_stop_id"
+    t.time "arrival_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["buses_route_id"], name: "index_bus_route_timings_on_buses_route_id"
+    t.index ["routes_stop_id"], name: "index_bus_route_timings_on_routes_stop_id"
+  end
 
   create_table "buses", force: :cascade do |t|
     t.string "regestration_no", default: "", null: false
     t.integer "no_of_seates"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "driver_id"
   end
 
   create_table "buses_routes", force: :cascade do |t|
@@ -27,6 +38,7 @@ ActiveRecord::Schema.define(version: 20180722101503) do
     t.bigint "route_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["bus_id"], name: "index_buses_routes_on_bus_id"
     t.index ["route_id"], name: "index_buses_routes_on_route_id"
   end
@@ -53,12 +65,13 @@ ActiveRecord::Schema.define(version: 20180722101503) do
   end
 
   create_table "routes", force: :cascade do |t|
-    t.string "source"
-    t.string "destination"
     t.string "distance"
     t.string "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name", null: false
+    t.bigint "start_stop_id", null: false
+    t.bigint "end_stop_id", null: false
   end
 
   create_table "routes_stops", force: :cascade do |t|
@@ -79,14 +92,6 @@ ActiveRecord::Schema.define(version: 20180722101503) do
     t.integer "order"
     t.index ["latitude", "longitude"], name: "index_stops_on_latitude_and_longitude", unique: true
     t.index ["name"], name: "index_stops_on_name", unique: true
-  end
-
-  create_table "timings", force: :cascade do |t|
-    t.string "arrival_time"
-    t.string "departure_time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "stops_id"
   end
 
   create_table "users", force: :cascade do |t|

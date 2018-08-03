@@ -1,0 +1,3 @@
+class BusesRoute < ApplicationRecord
+
+end

@@ -1,23 +1,23 @@
+<%= link_to "Create a new Route", new_route_path, class: "btn btn-xlarge btn-primary" %>
 <h1>List of all routes</h1>
-<% @routes.each do |routes| %>
-<div class="row">
+<% @routes.each do |route| %>
+  <div class="row">
     <div class="col-md-2">
         <section class="center">
-        
         </section>
     </div>
     <div class="col-md-8 well">
         <p>
-            <h2>Source: <%= routes.source %></h2>
-            <h2>Destination: <%= routes.destination %></h2>
-            <h2>Distance: <%= routes.distance %></h2>
+            <h2>Name: <%= route.name %></h2>
+            <h2>Start Stop: <%= route.start_stop.name %></h2>
+            <h2>End Stop: <%= route.end_stop.name %></h2>
+            <h2>Distance: <%= route.distance %></h2>
+            <h2>Time: <%= route.time %></h2>
+            <h2>Total Stops: <%= route.stops.count + 2 %></h2>
         </p>
         <div class="route-actions">
-            <%= link_to "edit the route", edit_route_path(@routes), class: "btn btn-xs btn-primary" %>
-            <%= link_to "delete the route", route_path(@routes), method: :delete, data: {confirm: "are yor sure?"}, class: "btn btn-xs btn-danger" %>      
-            
+            <%= link_to "Add more Stops", route_path(route), class: "btn btn-xs btn-primary" %>
         </div>
     </div>
-</div>
+  </div>
 <% end %>
-

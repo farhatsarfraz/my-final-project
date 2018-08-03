@@ -15,3 +15,8 @@
 //= require_tree .
 //= require gentelella-custom
 //= require select2
+
+
+$(document).ready(function() {
+    $('.multiple-slect2').select2();
+});
